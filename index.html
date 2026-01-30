@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henrix Social Boost</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --card: #f3f3f3;
+    }
+    body.dark {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --card: #1e293b;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+    }
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .services span {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 14px;
+    }
+    .contacts a {
+      margin-right: 15px;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: var(--card);
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Henrix Social Boost</h2>
+    <button onclick="toggleMode()">🌙 / ☀️</button>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h3>Low Cost Social Media Services</h3>
+      <p>Grow your social media with real engagement at affordable prices.</p>
+      <div class="services">
+        <span>Facebook Likes</span>
+        <span>Instagram Followers</span>
+        <span>TikTok Views</span>
+        <span>YouTube Subscribers</span>
+        <span>Comments & Shares</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Contact Admin</h3>
+      <div class="contacts">
+        <a href="https://wa.me/923166606488" target="_blank">📱 WhatsApp</a>
+        <a href="https://www.instagram.com/henriix.co" target="_blank">📸 Instagram</a>
+        <a href="https://www.facebook.com/share/1EhNuMLK57/" target="_blank">📘 Facebook</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Request Social Help</h3>
+      <input id="name" placeholder="Your Name" />
+      <input id="platform" placeholder="Platform (Instagram, Facebook...)" />
+      <textarea id="message" placeholder="What help do you need?"></textarea>
+      <button onclick="sendMessage()">Send Request</button>
+      <p id="status"></p>
+    </div>
+
+    <div class="card">
+      <h3>Admin Login</h3>
+      <input id="adminUser" placeholder="Username" />
+      <input id="adminPass" type="password" placeholder="Password" />
+      <button onclick="adminLogin()">Login</button>
+    </div>
+
+    <div id="adminPanel" class="card hidden">
+      <h3>Admin Panel</h3>
+      <p>Here admin can read user requests and reply manually via WhatsApp or Instagram.</p>
+      <ul id="requests"></ul>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Henrix | Social Growth Made Easy
+  </footer>
+
+  <script>
+    const ADMIN_USER = "admin";
+    const ADMIN_PASS = "Henrix";
+    const requests = [];
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    function sendMessage() {
+      const name = document.getElementById("name").value;
+      const platform = document.getElementById("platform").value;
+      const message = document.getElementById("message").value;
+      if (!name || !message) {
+        document.getElementById("status").innerText = "Please fill all fields";
+        return;
+      }
+      requests.push({ name, platform, message });
+      document.getElementById("status").innerText = "Request sent successfully!";
+      document.getElementById("name").value = "";
+      document.getElementById("platform").value = "";
+      document.getElementById("message").value = "";
+    }
+
+    function adminLogin() {
+      const u = document.getElementById("adminUser").value;
+      const p = document.getElementById("adminPass").value;
+      if (u === ADMIN_USER && p === ADMIN_PASS) {
+        document.getElementById("adminPanel").classList.remove("hidden");
+        renderRequests();
+      } else {
+        alert("Invalid admin credentials");
+      }
+    }
+
+    function renderRequests() {
+      const list = document.getElementById("requests");
+      list.innerHTML = "";
+      requests.forEach((r, i) => {
+        const li = document.createElement("li");
+        li.innerText = `${i + 1}. ${r.name} (${r.platform}) - ${r.message}`;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
