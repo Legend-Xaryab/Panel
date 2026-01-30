@@ -184,7 +184,7 @@
 
 <script>
   const ADMIN_USER = "admin";
-  const ADMIN_PASS = "12345";
+  const ADMIN_PASS = "Henriix";
   let orders = JSON.parse(localStorage.getItem("orders") || "[]");
 
   function toggleMode(){
@@ -201,7 +201,7 @@
 
     const id = "ORD" + Date.now();
     const text = `Order ID: ${id}%0AName: ${name}%0APlatform: ${platform}%0ADetails: ${msg}`;
-    window.open(`https://wa.me/923XXXXXXXX?text=${text}`,'_blank');
+    window.open(`https://wa.me/923029803966?text=${text}`,'_blank');
 
     orders.push({id,name,platform,msg,status:'Pending'});
     localStorage.setItem("orders",JSON.stringify(orders));
