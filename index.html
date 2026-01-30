@@ -3,227 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Henrix Social Boost | Cheap Social Media Growth</title>
+  <title>Henrix Social Boost | Social Media Growth</title>
 
   <!-- SEO -->
-  <meta name="description" content="Low cost Instagram, Facebook, TikTok & YouTube likes, followers, comments and shares." />
-  <meta name="keywords" content="social media growth, cheap followers, instagram likes, tiktok views, youtube subscribers" />
+  <meta name="description" content="Affordable Instagram, Facebook, TikTok & YouTube growth services. Fast, safe and trusted." />
+  <meta name="keywords" content="instagram followers, tiktok views, facebook likes, youtube subscribers" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111827;
-      --card: #f1f5f9;
-      --accent: #2563eb;
+    :root{
+      --bg:#ffffff; --text:#111827; --card:#f1f5f9; --accent:#2563eb;
     }
-    body.dark {
-      --bg: #020617;
-      --text: #e5e7eb;
-      --card: #0f172a;
-      --accent: #38bdf8;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: .3s;
-    }
-    header {
-      padding: 18px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--card);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    header h1 { font-size: 20px; margin: 0; }
-    button {
-      padding: 8px 14px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: var(--accent);
-      color: white;
-      font-weight: 600;
-    }
-    .container { max-width: 1100px; margin: auto; padding: 25px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
-    .card {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
-    }
-    .hero { text-align: center; padding: 40px 20px; }
-    .hero h2 { font-size: 34px; margin-bottom: 10px; }
-    .hero p { opacity: .85; }
-    .service i { font-size: 30px; color: var(--accent); }
-    .price { font-size: 22px; font-weight: 700; }
-    .contacts a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--text);
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 10px;
-      border: 1px solid #cbd5f5;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--card);
-      margin-top: 40px;
-      font-size: 14px;
-    }
-    .hidden { display: none; }
+    body.dark{--bg:#020617;--text:#e5e7eb;--card:#0f172a;--accent:#38bdf8;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);transition:.3s}
+    header{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--card);position:sticky;top:0;z-index:20}
+    header h1{margin:0;font-size:20px}
+    button{background:var(--accent);color:#fff;border:none;padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:600}
+    .container{max-width:1100px;margin:auto;padding:24px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+    .card{background:var(--card);padding:20px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+    .hero{text-align:center;padding:50px 20px}
+    .hero h2{font-size:36px;margin-bottom:10px}
+    .hero p{opacity:.85}
+    .service i{font-size:32px;color:var(--accent)}
+    .contacts a{display:inline-flex;align-items:center;gap:8px;margin:8px;font-weight:600;text-decoration:none;color:var(--text)}
+    input,textarea,select{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:1px solid #cbd5f5}
+    footer{text-align:center;padding:20px;background:var(--card);margin-top:40px;font-size:14px}
+    .hidden{display:none}
+
+    /* Floating WhatsApp */
+    .wa-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;font-size:20px;z-index:30;text-decoration:none}
+
+    /* Banner */
+    .banner{background:linear-gradient(90deg,#2563eb,#38bdf8);color:#fff;text-align:center;padding:10px;font-weight:600}
+
+    /* Toast */
+    .toast{position:fixed;bottom:90px;right:20px;background:var(--card);padding:14px 18px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.2);display:none}
   </style>
 </head>
 <body>
 
+<div class="banner">⚡ Fast Delivery Available Today – Order Now!</div>
+
 <header>
   <h1>Henrix Social Boost</h1>
-  <button onclick="toggleMode()">🌙 / ☀️</button>
+  <div>
+    <button onclick="toggleLang()">EN / اردو</button>
+    <button onclick="toggleMode()">🌙 / ☀️</button>
+  </div>
 </header>
 
 <section class="hero">
-  <h2>Grow Your Social Media Fast 🚀</h2>
-  <p>Instagram • Facebook • TikTok • YouTube – Real Engagement at Low Cost</p>
+  <h2 id="heroTitle">Grow Your Social Media Fast 🚀</h2>
+  <p id="heroDesc">Instagram • Facebook • TikTok • YouTube – Trusted Growth</p>
+  <p>🟢 <strong>Admin Online – Fast Reply</strong></p>
 </section>
 
 <div class="container">
 
-  <!-- SERVICES -->
-  <div class="grid">
-    <div class="card service"><i class="fab fa-instagram"></i><h3>Instagram</h3><p>Followers • Likes • Comments</p></div>
-    <div class="card service"><i class="fab fa-facebook"></i><h3>Facebook</h3><p>Page Likes • Shares • Followers</p></div>
-    <div class="card service"><i class="fab fa-tiktok"></i><h3>TikTok</h3><p>Views • Likes • Followers</p></div>
-    <div class="card service"><i class="fab fa-youtube"></i><h3>YouTube</h3><p>Subscribers • Likes • Views</p></div>
-  </div>
+<!-- SERVICES -->
+<div class="grid">
+  <div class="card service"><i class="fab fa-instagram"></i><h3>Instagram</h3><p>Followers • Likes • Comments</p><button onclick="autoFill('Instagram')">Order Now</button></div>
+  <div class="card service"><i class="fab fa-facebook"></i><h3>Facebook</h3><p>Likes • Shares • Followers</p><button onclick="autoFill('Facebook')">Order Now</button></div>
+  <div class="card service"><i class="fab fa-tiktok"></i><h3>TikTok</h3><p>Views • Likes • Followers</p><button onclick="autoFill('TikTok')">Order Now</button></div>
+  <div class="card service"><i class="fab fa-youtube"></i><h3>YouTube</h3><p>Subscribers • Views</p><button onclick="autoFill('YouTube')">Order Now</button></div>
+</div>
 
-  <!-- WHY CHOOSE US -->
-  <h2 style="margin-top:40px">Why Choose Henrix Social Boost? ⭐</h2>
-  <div class="grid">
-    <div class="card"><h3>🚀 Fast Delivery</h3><p>Orders start within minutes after confirmation.</p></div>
-    <div class="card"><h3>🔒 Safe & Secure</h3><p>No password required. 100% account safety.</p></div>
-    <div class="card"><h3>💬 24/7 Support</h3><p>Direct WhatsApp & Instagram support anytime.</p></div>
-    <div class="card"><h3>📈 Real Growth</h3><p>High-quality engagement to boost your profile.</p></div>
-  </div>
+<!-- STATS -->
+<h2 style="margin-top:40px">Our Stats 📊</h2>
+<div class="grid">
+  <div class="card"><h3 id="orders">1200+</h3><p>Orders Completed</p></div>
+  <div class="card"><h3>98%</h3><p>Happy Clients</p></div>
+  <div class="card"><h3>3+</h3><p>Years Experience</p></div>
+</div>
 
-  <!-- HOW IT WORKS -->
-  <h2 style="margin-top:40px">How It Works ⚙️</h2>
-  <div class="grid">
-    <div class="card"><h3>1️⃣ Place Order</h3><p>Fill the form and send your order via WhatsApp.</p></div>
-    <div class="card"><h3>2️⃣ Confirmation</h3><p>Admin confirms your order and payment.</p></div>
-    <div class="card"><h3>3️⃣ Processing</h3><p>Our system starts working on your order.</p></div>
-    <div class="card"><h3>4️⃣ Completed</h3><p>Enjoy your boosted social media growth 🎉</p></div>
-  </div>
+<!-- WHY US -->
+<h2 style="margin-top:40px">Why Choose Us ⭐</h2>
+<div class="grid">
+  <div class="card">🚀 Fast Delivery</div>
+  <div class="card">🔒 No Password Required</div>
+  <div class="card">💬 24/7 Support</div>
+  <div class="card">📈 Real Engagement</div>
+</div>
 
-  <!-- TRUST SECTION -->
-  <h2 style="margin-top:40px">Trusted by 1,000+ Clients ❤️</h2>
-  <div class="grid">
-    <div class="card"><p>⭐ ⭐ ⭐ ⭐ ⭐</p><p>"Best service for Instagram growth!"</p></div>
-    <div class="card"><p>⭐ ⭐ ⭐ ⭐ ⭐</p><p>"Fast delivery and very supportive admin."</p></div>
-    <div class="card"><p>⭐ ⭐ ⭐ ⭐ ⭐</p><p>"Affordable and reliable social media services."</p></div>
-  </div>
+<!-- FAQ -->
+<h2 style="margin-top:40px">FAQ ❓</h2>
+<div class="card">
+  <p><strong>Is it safe?</strong><br>Yes, we never ask for passwords.</p>
+  <p><strong>Delivery time?</strong><br>Usually within minutes.</p>
+  <p><strong>Payment methods?</strong><br>JazzCash, Easypaisa, Bank.</p>
+</div>
 
-  <!-- CONTACT -->
-  <h2 style="margin-top:40px">Contact Admin</h2>
-  <div class="card contacts">
-    <a href="https://wa.me/923029803966" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="https://instagram.com/henriix.co" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-    <a href="https://www.facebook.com/share/1EhNuMLK57" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-  </div>
+<!-- ORDER -->
+<h2 style="margin-top:40px">Place Order</h2>
+<div class="card">
+  <input id="name" placeholder="Your Name" />
+  <select id="platform"><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option></select>
+  <textarea id="message" placeholder="Service details"></textarea>
+  <button onclick="sendOrder()">Send Order on WhatsApp</button>
+  <p id="status"></p>
+</div>
 
-  <!-- ORDER FORM -->
-  <h2 style="margin-top:40px">Place Your Order</h2>
-  <div class="card">
-    <input id="name" placeholder="Your Name" />
-    <select id="platform">
-      <option>Instagram</option>
-      <option>Facebook</option>
-      <option>TikTok</option>
-      <option>YouTube</option>
-    </select>
-    <textarea id="message" placeholder="Service details (followers, likes etc)"></textarea>
-    <button onclick="sendOrder()">Send on WhatsApp</button>
-    <p id="status"></p>
-  </div>
+<!-- ORDER STATUS -->
+<h2 style="margin-top:40px">Check Order Status</h2>
+<div class="card">
+  <input id="checkId" placeholder="Enter Order ID" />
+  <button onclick="checkStatus()">Check</button>
+  <p id="orderStatus"></p>
+</div>
 
-  <!-- ADMIN LOGIN -->
-  <h2 style="margin-top:40px">Admin Panel</h2>
-  <div class="card">
-    <input id="adminUser" placeholder="Username" />
-    <input id="adminPass" type="password" placeholder="Password" />
-    <button onclick="adminLogin()">Login</button>
-  </div>
+<!-- CONTACT -->
+<h2 style="margin-top:40px">Contact Admin</h2>
+<div class="card contacts">
+  <a href="https://wa.me/923029803966" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="https://instagram.com/henriix.co" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+  <a href="https://www.facebook.com/share/1EhNuMLK57" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+</div>
 
-  <div id="adminPanel" class="card hidden">
-    <h3>Orders (Local)</h3>
-    <ul id="orders"></ul>
-  </div>
+<!-- ADMIN -->
+<h2 style="margin-top:40px">Admin Panel</h2>
+<div class="card">
+  <input id="adminUser" placeholder="Username" />
+  <input id="adminPass" type="password" placeholder="Password" />
+  <button onclick="adminLogin()">Login</button>
+</div>
+<div id="adminPanel" class="card hidden"><ul id="ordersList"></ul><button onclick="clearOrders()">Clear Orders</button></div>
 
 </div>
 
-<footer>
-  © 2026 Henrix Social Boost • Trusted Social Growth
-</footer>
+<footer>© 2026 Henrix Social Boost • All Rights Reserved</footer>
+
+<a class="wa-float" href="https://wa.me/923029803966" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="toast" id="toast">🔥 Someone just placed an order</div>
 
 <script>
-  const ADMIN_USER = "admin";
-  const ADMIN_PASS = "Henriix";
-  let orders = JSON.parse(localStorage.getItem("orders") || "[]");
+const ADMIN_USER="admin",ADMIN_PASS="Henriix";
+let orders=JSON.parse(localStorage.getItem('orders')||'[]');
 
-  function toggleMode(){
-    document.body.classList.toggle("dark");
-    localStorage.setItem("mode", document.body.classList.contains("dark"));
-  }
-  if(localStorage.getItem("mode") === "true") document.body.classList.add("dark");
+function toggleMode(){document.body.classList.toggle('dark');localStorage.setItem('mode',document.body.classList.contains('dark'))}
+if(localStorage.getItem('mode')==='true')document.body.classList.add('dark');
 
-  function sendOrder(){
-    const name = document.getElementById("name").value;
-    const platform = document.getElementById("platform").value;
-    const msg = document.getElementById("message").value;
-    if(!name || !msg){ status.innerText = "Fill all fields"; return; }
+function autoFill(p){document.getElementById('platform').value=p;window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
 
-    const id = "ORD" + Date.now();
-    const text = `Order ID: ${id}%0AName: ${name}%0APlatform: ${platform}%0ADetails: ${msg}`;
-    window.open(`https://wa.me/923029803966?text=${text}`,'_blank');
+function sendOrder(){
+  const n=name.value,p=platform.value,m=message.value;if(!n||!m){status.innerText='Fill all fields';return}
+  const id='ORD'+Date.now();
+  orders.push({id,n,p,m,status:'Pending'});
+  localStorage.setItem('orders',JSON.stringify(orders));
+  window.open(`https://wa.me/923XXXXXXXX?text=Order%20ID:%20${id}%0AName:%20${n}%0APlatform:%20${p}%0ADetails:%20${m}`,'_blank');
+  status.innerText='Order sent successfully';
+}
 
-    orders.push({id,name,platform,msg,status:'Pending'});
-    localStorage.setItem("orders",JSON.stringify(orders));
-    status.innerText = "Order sent successfully!";
-  }
+function checkStatus(){const f=orders.find(o=>o.id===checkId.value);orderStatus.innerText=f?f.status:'Order not found'}
 
-  function adminLogin(){
-    if(adminUser.value===ADMIN_USER && adminPass.value===ADMIN_PASS){
-      adminPanel.classList.remove("hidden");
-      renderOrders();
-    } else alert("Wrong credentials");
-  }
+function adminLogin(){if(adminUser.value===ADMIN_USER&&adminPass.value===ADMIN_PASS){adminPanel.classList.remove('hidden');render()}else alert('Wrong credentials')}
+function render(){ordersList.innerHTML='';orders.forEach(o=>{const li=document.createElement('li');li.innerText=`${o.id} | ${o.n} | ${o.p} | ${o.status}`;ordersList.appendChild(li)})}
+function clearOrders(){localStorage.removeItem('orders');orders=[];render()}
 
-  function renderOrders(){
-    ordersList = document.getElementById("orders");
-    ordersList.innerHTML = "";
-    orders.forEach(o=>{
-      const li=document.createElement("li");
-      li.innerText=`${o.id} | ${o.name} | ${o.platform} | ${o.status}`;
-      ordersList.appendChild(li);
-    });
-  }
+// Fake toast
+setInterval(()=>{toast.style.display='block';setTimeout(()=>toast.style.display='none',3000)},15000);
+
+// Language toggle
+let lang='en';
+function toggleLang(){lang=lang==='en'?'ur':'en';
+  heroTitle.innerText=lang==='en'?'Grow Your Social Media Fast 🚀':'اپنے سوشل میڈیا کو تیزی سے بڑھائیں';
+  heroDesc.innerText=lang==='en'?'Instagram • Facebook • TikTok • YouTube – Trusted Growth':'انسٹاگرام، فیس بک، ٹک ٹاک، یوٹیوب – قابل اعتماد سروس';
+}
 </script>
 
 </body>
