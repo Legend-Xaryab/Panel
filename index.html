@@ -98,14 +98,34 @@
 </div>
 
 <!-- ORDER -->
+<!-- ORDER -->
 <h2 style="margin-top:40px">Place Order</h2>
 <div class="card">
   <input id="name" placeholder="Your Name" />
-  <select id="platform"><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option></select>
+
+  <select id="platform">
+    <option>Instagram</option>
+    <option>Facebook</option>
+    <option>TikTok</option>
+    <option>YouTube</option>
+  </select>
+
+  <p>Select Amount:</p>
+  <div style="display:flex;gap:10px;margin-bottom:10px">
+    <button type="button" onclick="selectAmount(250)">250</button>
+    <button type="button" onclick="selectAmount(500)">500</button>
+    <button type="button" onclick="selectAmount(1000)">1k</button>
+    <button type="button" onclick="selectAmount(5000)">5k</button>
+    <button type="button" onclick="selectAmount(10000)">10k</button>
+  </div>
+
+  <input id="amount" type="text" placeholder="Selected Amount" readonly style="margin-bottom:10px;" />
+
   <textarea id="message" placeholder="Service details"></textarea>
   <button onclick="sendOrder()">Send Order on WhatsApp</button>
   <p id="status"></p>
 </div>
+
 
 <!-- CONTACT -->
 <h2 style="margin-top:40px">Contact Admin</h2>
@@ -123,29 +143,34 @@
 <div class="toast" id="toast">🔥 Someone just placed an order</div>
 
 <script>
-let orders=JSON.parse(localStorage.getItem('orders')||'[]');
+let selectedAmount = '';
 
-function toggleMode(){document.body.classList.toggle('dark');localStorage.setItem('mode',document.body.classList.contains('dark'))}
-if(localStorage.getItem('mode')==='true')document.body.classList.add('dark');
-
-function autoFill(p){document.getElementById('platform').value=p;window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
+function selectAmount(a){
+  selectedAmount = a;
+  document.getElementById('amount').value = a; // show selected amount
+}
 
 function sendOrder(){
   const n=document.getElementById('name').value,
         p=document.getElementById('platform').value,
         m=document.getElementById('message').value;
-  if(!n||!m){document.getElementById('status').innerText='Fill all fields';return}
+  
+  if(!n || !m || !selectedAmount){
+    document.getElementById('status').innerText='Please fill all fields and select an amount';
+    return;
+  }
 
   const id='ORD'+Date.now();
-  orders.push({id,n,p,m,status:'Pending'});
+  orders.push({id,n,p,m,amount:selectedAmount,status:'Pending'});
   localStorage.setItem('orders',JSON.stringify(orders));
 
   // Open WhatsApp with order details
-  const wpNumber='923029803966';
-  const text=`🔥 New Order 🔥%0AOrder ID: ${id}%0AName: ${n}%0APlatform: ${p}%0ADetails: ${m}`;
+  const wpNumber='923166606488';
+  const text=`🔥 New Order 🔥%0AOrder ID: ${id}%0AName: ${n}%0APlatform: ${p}%0AAmount: ${selectedAmount}%0ADetails: ${m}`;
   window.open(`https://wa.me/${wpNumber}?text=${text}`,'_blank');
   document.getElementById('status').innerText='Redirecting to WhatsApp...';
 }
+
 
 // Fake toast
 setInterval(()=>{toast.style.display='block';setTimeout(()=>toast.style.display='none',3000)},15000);
