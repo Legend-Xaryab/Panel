@@ -168,10 +168,12 @@ function sendOrder(){
   const id='ORD'+Date.now();
   orders.push({id,n,p,q,m,status:'Pending'});
   localStorage.setItem('orders',JSON.stringify(orders));
-  // Redirect to WhatsApp with order details
+
+  // Redirect to WhatsApp with order details in a new tab
   const waMessage = `Order ID: ${id}%0AName: ${n}%0APlatform: ${p}%0AQuantity: ${q}%0ADetails: ${m}`;
-  window.location.href = `https://wa.me/923029803966?text=${waMessage}`;
-  status.innerText='Redirecting to WhatsApp...';
+  window.open(`https://wa.me/923029803966?text=${waMessage}`, '_blank');
+
+  status.innerText='Order sent successfully! Redirecting to WhatsApp...';
 }
 
 function checkStatus(){const f=orders.find(o=>o.id===checkId.value);orderStatus.innerText=f?f.status:'Order not found'}
