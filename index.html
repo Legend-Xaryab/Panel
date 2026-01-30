@@ -107,14 +107,6 @@
   <p id="status"></p>
 </div>
 
-<!-- ORDER STATUS -->
-<h2 style="margin-top:40px">Check Order Status</h2>
-<div class="card">
-  <input id="checkId" placeholder="Enter Order ID" />
-  <button onclick="checkStatus()">Check</button>
-  <p id="orderStatus"></p>
-</div>
-
 <!-- CONTACT -->
 <h2 style="margin-top:40px">Contact Admin</h2>
 <div class="card contacts">
@@ -123,24 +115,14 @@
   <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
 </div>
 
-<!-- ADMIN -->
-<h2 style="margin-top:40px">Admin Panel</h2>
-<div class="card">
-  <input id="adminUser" placeholder="Username" />
-  <input id="adminPass" type="password" placeholder="Password" />
-  <button onclick="adminLogin()">Login</button>
-</div>
-<div id="adminPanel" class="card hidden"><ul id="ordersList"></ul><button onclick="clearOrders()">Clear Orders</button></div>
-
 </div>
 
 <footer>© 2026 Henrix Social Boost • All Rights Reserved</footer>
 
-<a class="wa-float" href="https://wa.me/923XXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a class="wa-float" href="https://wa.me/923166606488" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <div class="toast" id="toast">🔥 Someone just placed an order</div>
 
 <script>
-const ADMIN_USER="admin",ADMIN_PASS="12345";
 let orders=JSON.parse(localStorage.getItem('orders')||'[]');
 
 function toggleMode(){document.body.classList.toggle('dark');localStorage.setItem('mode',document.body.classList.contains('dark'))}
@@ -149,19 +131,21 @@ if(localStorage.getItem('mode')==='true')document.body.classList.add('dark');
 function autoFill(p){document.getElementById('platform').value=p;window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
 
 function sendOrder(){
-  const n=name.value,p=platform.value,m=message.value;if(!n||!m){status.innerText='Fill all fields';return}
+  const n=document.getElementById('name').value,
+        p=document.getElementById('platform').value,
+        m=document.getElementById('message').value;
+  if(!n||!m){document.getElementById('status').innerText='Fill all fields';return}
+
   const id='ORD'+Date.now();
   orders.push({id,n,p,m,status:'Pending'});
   localStorage.setItem('orders',JSON.stringify(orders));
-  window.open(`https://wa.me/923166606488?text=Order%20ID:%20${id}%0AName:%20${n}%0APlatform:%20${p}%0ADetails:%20${m}`,'_blank');
-  status.innerText='Order sent successfully';
+
+  // Open WhatsApp with order details
+  const wpNumber='923166606488';
+  const text=`🔥 New Order 🔥%0AOrder ID: ${id}%0AName: ${n}%0APlatform: ${p}%0ADetails: ${m}`;
+  window.open(`https://wa.me/${wpNumber}?text=${text}`,'_blank');
+  document.getElementById('status').innerText='Redirecting to WhatsApp...';
 }
-
-function checkStatus(){const f=orders.find(o=>o.id===checkId.value);orderStatus.innerText=f?f.status:'Order not found'}
-
-function adminLogin(){if(adminUser.value===ADMIN_USER&&adminPass.value===ADMIN_PASS){adminPanel.classList.remove('hidden');render()}else alert('Wrong credentials')}
-function render(){ordersList.innerHTML='';orders.forEach(o=>{const li=document.createElement('li');li.innerText=`${o.id} | ${o.n} | ${o.p} | ${o.status}`;ordersList.appendChild(li)})}
-function clearOrders(){localStorage.removeItem('orders');orders=[];render()}
 
 // Fake toast
 setInterval(()=>{toast.style.display='block';setTimeout(()=>toast.style.display='none',3000)},15000);
@@ -169,8 +153,8 @@ setInterval(()=>{toast.style.display='block';setTimeout(()=>toast.style.display=
 // Language toggle
 let lang='en';
 function toggleLang(){lang=lang==='en'?'ur':'en';
-  heroTitle.innerText=lang==='en'?'Grow Your Social Media Fast 🚀':'اپنے سوشل میڈیا کو تیزی سے بڑھائیں';
-  heroDesc.innerText=lang==='en'?'Instagram • Facebook • TikTok • YouTube – Trusted Growth':'انسٹاگرام، فیس بک، ٹک ٹاک، یوٹیوب – قابل اعتماد سروس';
+  document.getElementById('heroTitle').innerText=lang==='en'?'Grow Your Social Media Fast 🚀':'اپنے سوشل میڈیا کو تیزی سے بڑھائیں';
+  document.getElementById('heroDesc').innerText=lang==='en'?'Instagram • Facebook • TikTok • YouTube – Trusted Growth':'انسٹاگرام، فیس بک، ٹک ٹاک، یوٹیوب – قابل اعتماد سروس';
 }
 </script>
 
