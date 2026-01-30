@@ -153,7 +153,7 @@ function sendOrder(){
   const id='ORD'+Date.now();
   orders.push({id,n,p,m,status:'Pending'});
   localStorage.setItem('orders',JSON.stringify(orders));
-  window.open(`https://wa.me/923XXXXXXXX?text=Order%20ID:%20${id}%0AName:%20${n}%0APlatform:%20${p}%0ADetails:%20${m}`,'_blank');
+  window.open(`https://wa.me/923166606488?text=Order%20ID:%20${id}%0AName:%20${n}%0APlatform:%20${p}%0ADetails:%20${m}`,'_blank');
   status.innerText='Order sent successfully';
 }
 
