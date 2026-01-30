@@ -102,14 +102,6 @@
 <div class="card">
   <input id="name" placeholder="Your Name" />
   <select id="platform"><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option></select>
-  <select id="quantity">
-    <option value="">Select Quantity</option>
-    <option>250</option>
-    <option>500</option>
-    <option>1K</option>
-    <option>5K</option>
-    <option>10K</option>
-  </select>
   <textarea id="message" placeholder="Service details"></textarea>
   <button onclick="sendOrder()">Send Order on WhatsApp</button>
   <p id="status"></p>
@@ -126,9 +118,9 @@
 <!-- CONTACT -->
 <h2 style="margin-top:40px">Contact Admin</h2>
 <div class="card contacts">
-  <a href="https://wa.me/923029803966" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  <a href="https://instagram.com/henriix.co" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-  <a href="https://www.facebook.com/share/1EhNuMLK57" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+  <a href="https://wa.me/923XXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+  <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
 </div>
 
 <!-- ADMIN -->
@@ -138,20 +130,17 @@
   <input id="adminPass" type="password" placeholder="Password" />
   <button onclick="adminLogin()">Login</button>
 </div>
-<div id="adminPanel" class="card hidden">
-  <ul id="ordersList"></ul>
-  <button onclick="clearOrders()">Clear Orders</button>
-</div>
+<div id="adminPanel" class="card hidden"><ul id="ordersList"></ul><button onclick="clearOrders()">Clear Orders</button></div>
 
 </div>
 
 <footer>© 2026 Henrix Social Boost • All Rights Reserved</footer>
 
-<a class="wa-float" href="https://wa.me/923029803966" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a class="wa-float" href="https://wa.me/923XXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <div class="toast" id="toast">🔥 Someone just placed an order</div>
 
 <script>
-const ADMIN_USER="admin",ADMIN_PASS="Henriix";
+const ADMIN_USER="admin",ADMIN_PASS="12345";
 let orders=JSON.parse(localStorage.getItem('orders')||'[]');
 
 function toggleMode(){document.body.classList.toggle('dark');localStorage.setItem('mode',document.body.classList.contains('dark'))}
@@ -160,26 +149,18 @@ if(localStorage.getItem('mode')==='true')document.body.classList.add('dark');
 function autoFill(p){document.getElementById('platform').value=p;window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
 
 function sendOrder(){
-  const n=name.value,p=platform.value,q=quantity.value,m=message.value;
-  if(!n || !m || !q){
-    status.innerText='Please fill all fields and select quantity';
-    return;
-  }
+  const n=name.value,p=platform.value,m=message.value;if(!n||!m){status.innerText='Fill all fields';return}
   const id='ORD'+Date.now();
-  orders.push({id,n,p,q,m,status:'Pending'});
+  orders.push({id,n,p,m,status:'Pending'});
   localStorage.setItem('orders',JSON.stringify(orders));
-
-  // Redirect to WhatsApp with order details in a new tab
-  const waMessage = `Order ID: ${id}%0AName: ${n}%0APlatform: ${p}%0AQuantity: ${q}%0ADetails: ${m}`;
-  window.open(`https://wa.me/923029803966?text=${waMessage}`, '_blank');
-
-  status.innerText='Order sent successfully! Redirecting to WhatsApp...';
+  window.open(`https://wa.me/923XXXXXXXX?text=Order%20ID:%20${id}%0AName:%20${n}%0APlatform:%20${p}%0ADetails:%20${m}`,'_blank');
+  status.innerText='Order sent successfully';
 }
 
 function checkStatus(){const f=orders.find(o=>o.id===checkId.value);orderStatus.innerText=f?f.status:'Order not found'}
 
 function adminLogin(){if(adminUser.value===ADMIN_USER&&adminPass.value===ADMIN_PASS){adminPanel.classList.remove('hidden');render()}else alert('Wrong credentials')}
-function render(){ordersList.innerHTML='';orders.forEach(o=>{const li=document.createElement('li');li.innerText=`${o.id} | ${o.n} | ${o.p} | ${o.q} | ${o.status}`;ordersList.appendChild(li)})}
+function render(){ordersList.innerHTML='';orders.forEach(o=>{const li=document.createElement('li');li.innerText=`${o.id} | ${o.n} | ${o.p} | ${o.status}`;ordersList.appendChild(li)})}
 function clearOrders(){localStorage.removeItem('orders');orders=[];render()}
 
 // Fake toast
